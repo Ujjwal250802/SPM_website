@@ -159,7 +159,7 @@ const CoursePage: React.FC = () => {
                   transition={{ delay: 0.1 * index }}
                   className={`bg-white rounded-2xl shadow-xl overflow-hidden ${
                     index === 1 ? 'ring-2 ring-primary-500 transform scale-105' : ''
-                  className="inline-block btn-primary px-8 py-3 rounded-full"
+                  }`}
                 >
                   {index === 1 && (
                     <div className="bg-gradient-to-r from-primary-500 to-purple-500 text-white text-center py-2 text-sm font-semibold">
