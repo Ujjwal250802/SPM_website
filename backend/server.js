@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/appointments', require('./routes/appointments'));
-//app.use('/api/courses', require('./routes/courses'));
+app.use('/api/courses', require('./routes/courses'));
 app.use('/api/payments', require('./routes/payments'));
 app.use('/api/content', require('./routes/content'));
 
