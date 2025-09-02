@@ -131,7 +131,7 @@ const AuthPage: React.FC = () => {
                         }
                       })}
                       type="email"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                      className="input-field"
                       placeholder="Enter your email"
                     />
                     {loginForm.formState.errors.email && (
@@ -152,7 +152,7 @@ const AuthPage: React.FC = () => {
                           required: 'Password is required'
                         })}
                         type={showPassword ? 'text' : 'password'}
-                        className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                        className="input-field pr-12"
                         placeholder="Enter your password"
                       />
                       <button
@@ -175,7 +175,7 @@ const AuthPage: React.FC = () => {
                     whileTap={{ scale: 0.98 }}
                     type="submit"
                     disabled={isLoading}
-                    className="w-full bg-gradient-to-r from-primary-500 to-purple-500 text-white py-3 px-4 rounded-lg font-semibold hover:from-primary-600 hover:to-purple-600 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                    className="w-full btn-primary py-3 px-4 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                   >
                     {isLoading ? (
                       <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
@@ -207,7 +207,7 @@ const AuthPage: React.FC = () => {
                         }
                       })}
                       type="text"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                      className="input-field"
                       placeholder="Enter your full name"
                     />
                     {registerForm.formState.errors.name && (
@@ -231,7 +231,7 @@ const AuthPage: React.FC = () => {
                         }
                       })}
                       type="email"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                      className="input-field"
                       placeholder="Enter your email"
                     />
                     {registerForm.formState.errors.email && (
@@ -255,7 +255,7 @@ const AuthPage: React.FC = () => {
                         }
                       })}
                       type="password"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                      className="input-field"
                       placeholder="Create a password"
                     />
                     {registerForm.formState.errors.password && (
@@ -275,7 +275,7 @@ const AuthPage: React.FC = () => {
                         required: 'Please confirm your password'
                       })}
                       type="password"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                      className="input-field"
                       placeholder="Confirm your password"
                     />
                     {registerForm.formState.errors.confirmPassword && (
@@ -290,7 +290,7 @@ const AuthPage: React.FC = () => {
                     whileTap={{ scale: 0.98 }}
                     type="submit"
                     disabled={isLoading}
-                    className="w-full bg-gradient-to-r from-primary-500 to-purple-500 text-white py-3 px-4 rounded-lg font-semibold hover:from-primary-600 hover:to-purple-600 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                    className="w-full btn-primary py-3 px-4 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                   >
                     {isLoading ? (
                       <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
@@ -305,7 +305,7 @@ const AuthPage: React.FC = () => {
             <div className="mt-6 text-center">
               <a
                 href="/"
-                className="text-primary-600 hover:text-primary-700 font-medium"
+                className="text-primary-600 hover:text-primary-700 font-medium transition-colors duration-200"
               >
                 Back to Home
               </a>
