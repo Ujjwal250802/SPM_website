@@ -56,6 +56,9 @@ const AuthPage: React.FC = () => {
     try {
       await register(data.name, data.email, data.password);
       toast.success('Registration successful!');
+      toast.success('Please login with your credentials');
+      setIsLogin(true); // Switch to login form
+      registerForm.reset(); // Clear the form
     } catch (error: any) {
       toast.error(error.response?.data?.message || 'Registration failed');
     } finally {

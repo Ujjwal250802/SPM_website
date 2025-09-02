@@ -1,9 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, LogOut, User } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
 
 const Navbar: React.FC = () => {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -45,21 +54,62 @@ const Navbar: React.FC = () => {
             >
               Book Appointment
             </a>
-            <Link
-              to="/auth"
-              className="btn-primary"
-            >
-              Courses
-            </Link>
+            
+            {user ? (
+              <div className="flex items-center space-x-4">
+                <Link
+                  to="/courses"
+                  className="text-gray-700 hover:text-primary-600 transition-colors font-medium"
+                >
+                  My Courses
+                </Link>
+                <div className="flex items-center space-x-2 text-gray-700">
+                  <User className="h-4 w-4" />
+                  <span className="text-sm">{user.name}</span>
+                </div>
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center space-x-2 text-gray-700 hover:text-red-600 transition-colors"
+                >
+                  <LogOut className="h-4 w-4" />
+                  <span className="text-sm">Logout</span>
+                </button>
+              </div>
+            ) : (
+              <Link
+                to="/auth"
+                className="btn-primary"
+              >
+                Courses
+              </Link>
+            )}
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <button className="text-gray-700 hover:text-primary-600">
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
+            {user ? (
+              <div className="flex items-center space-x-2">
+                <Link
+                  to="/courses"
+                  className="text-gray-700 hover:text-primary-600 transition-colors"
+                >
+                  <User className="h-6 w-6" />
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="text-gray-700 hover:text-red-600 transition-colors"
+                >
+                  <LogOut className="h-6 w-6" />
+                </button>
+              </div>
+            ) : (
+              <Link
+                to="/auth"
+                className="text-gray-700 hover:text-primary-600"
+              >
+                <User className="h-6 w-6" />
+              </Link>
+            )}
           </div>
         </div>
       </div>

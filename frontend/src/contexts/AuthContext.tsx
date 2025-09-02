@@ -65,13 +65,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const register = async (name: string, email: string, password: string) => {
-    const response = await axios.post('/api/auth/register', { name, email, password });
-    const { token: newToken, user: userData } = response.data;
-    
-    localStorage.setItem('token', newToken);
-    setToken(newToken);
-    setUser(userData);
-    axios.defaults.headers.common['Authorization'] = `Bearer ${newToken}`;
+    await axios.post('/api/auth/register', { name, email, password });
+    // Don't auto-login after registration
   };
 
   const logout = () => {
