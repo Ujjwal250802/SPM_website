@@ -159,7 +159,7 @@ const PaymentPage: React.FC = () => {
                 <input
                   {...register('name', { required: 'Name is required' })}
                   type="text"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                  className="input-field"
                   placeholder="Enter your full name"
                 />
                 {errors.name && (
@@ -181,7 +181,7 @@ const PaymentPage: React.FC = () => {
                     }
                   })}
                   type="email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                  className="input-field"
                   placeholder="Enter your email address"
                 />
                 {errors.email && (
@@ -203,7 +203,7 @@ const PaymentPage: React.FC = () => {
                     }
                   })}
                   type="tel"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                  className="input-field"
                   placeholder="Enter your phone number"
                 />
                 {errors.phone && (
@@ -219,7 +219,7 @@ const PaymentPage: React.FC = () => {
                 <textarea
                   {...register('address', { required: 'Address is required' })}
                   rows={3}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 resize-none"
+                  className="input-field resize-none"
                   placeholder="Enter your complete address"
                 ></textarea>
                 {errors.address && (
@@ -242,7 +242,7 @@ const PaymentPage: React.FC = () => {
                   whileTap={{ scale: 0.98 }}
                   type="submit"
                   disabled={isProcessing}
-                  className="w-full bg-gradient-to-r from-primary-500 to-purple-500 text-white py-4 px-6 rounded-lg font-semibold text-lg shadow-lg hover:from-primary-600 hover:to-purple-600 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  className="w-full btn-primary py-4 px-6 text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                 >
                   {isProcessing ? (
                     <>
