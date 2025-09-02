@@ -86,13 +86,13 @@ const HomePage: React.FC = () => {
             >
               <a
                 href="#services"
-                className="bg-gradient-to-r from-primary-500 to-purple-500 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:from-primary-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105"
+                className="btn-primary text-lg px-8 py-4 rounded-full"
               >
                 Explore Services
               </a>
               <a
                 href="#appointment"
-                className="border-2 border-primary-500 text-primary-500 px-8 py-4 rounded-full font-semibold text-lg hover:bg-primary-500 hover:text-white transition-all duration-300 transform hover:scale-105"
+                className="btn-secondary text-lg px-8 py-4 rounded-full"
               >
                 Book Appointment
               </a>

@@ -64,7 +64,7 @@ const AppointmentForm: React.FC = () => {
                 <input
                   {...register('name', { required: 'Name is required', minLength: { value: 2, message: 'Name must be at least 2 characters' } })}
                   type="text"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                  className="input-field"
                   placeholder="Enter your full name"
                 />
                 {errors.name && (
@@ -80,7 +80,7 @@ const AppointmentForm: React.FC = () => {
                 <input
                   {...register('phone', { required: 'Phone number is required', minLength: { value: 10, message: 'Phone number must be at least 10 digits' } })}
                   type="tel"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                  className="input-field"
                   placeholder="Enter your phone number"
                 />
                 {errors.phone && (
@@ -103,7 +103,7 @@ const AppointmentForm: React.FC = () => {
                     } 
                   })}
                   type="email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                  className="input-field"
                   placeholder="Enter your email address"
                 />
                 {errors.email && (
@@ -120,7 +120,7 @@ const AppointmentForm: React.FC = () => {
                   {...register('preferredDate')}
                   type="date"
                   min={new Date().toISOString().split('T')[0]}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                  className="input-field"
                 />
               </div>
             </div>
@@ -131,7 +131,7 @@ const AppointmentForm: React.FC = () => {
               </label>
               <select
                 {...register('serviceType', { required: 'Please select a service type' })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                className="input-field"
               >
                 <option value="">Select Service Type</option>
                 <option value="bridal">Bridal Makeup</option>
@@ -151,7 +151,7 @@ const AppointmentForm: React.FC = () => {
               <textarea
                 {...register('details')}
                 rows={4}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 resize-none"
+                className="input-field resize-none"
                 placeholder="Tell us more about what you're looking for..."
               ></textarea>
             </div>
@@ -161,7 +161,7 @@ const AppointmentForm: React.FC = () => {
               whileTap={{ scale: 0.98 }}
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-primary-500 to-purple-500 text-white py-4 px-6 rounded-lg font-semibold text-lg shadow-lg hover:from-primary-600 hover:to-purple-600 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+              className="w-full btn-primary py-4 px-6 text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
             >
               {isSubmitting ? (
                 <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>

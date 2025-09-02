@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
             </a>
             <Link
               to="/auth"
-              className="bg-gradient-to-r from-primary-500 to-purple-500 text-white px-6 py-2 rounded-full hover:from-primary-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="btn-primary"
             >
               Courses
             </Link>
