@@ -135,6 +135,28 @@ const CoursePage: React.FC = () => {
           </Link>
         </motion.div>
 
+        {/* Active Subscription Info */}
+        {hasActiveSubscription && user.subscription && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="bg-green-50 border border-green-200 rounded-2xl p-6 mb-8"
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-lg font-semibold text-green-800 mb-2">
+                  Active Subscription: {user.subscription.type?.toUpperCase()}
+                </h3>
+                <p className="text-green-600">
+                  Valid until: {new Date(user.subscription.endDate!).toLocaleDateString()}
+                </p>
+              </div>
+              <CheckCircle className="h-12 w-12 text-green-500" />
+            </div>
+          </motion.div>
+        )}
+
         {/* Pricing Plans */}
         {!hasActiveSubscription && (
           <motion.div
@@ -197,7 +219,7 @@ const CoursePage: React.FC = () => {
           </motion.div>
         )}
 
-        {/* Local Classes Section */}
+        {/* Local Physical Classes Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -263,31 +285,6 @@ const CoursePage: React.FC = () => {
                   </div>
                 </div>
               </div>
-        {/* Active Subscription Info */}
-        {hasActiveSubscription && user.subscription && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="bg-green-50 border border-green-200 rounded-2xl p-6 mb-8"
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-semibold text-green-800 mb-2">
-                  Active Subscription: {user.subscription.type?.toUpperCase()}
-                </h3>
-                <p className="text-green-600">
-                  Valid until: {new Date(user.subscription.endDate!).toLocaleDateString()}
-                </p>
-              </div>
-              <CheckCircle className="h-12 w-12 text-green-500" />
-            </div>
-          </motion.div>
-        )}
-      </div>
-    </div>
-  );
-};
 
               {/* Location Map */}
               <div>
@@ -331,7 +328,7 @@ const CoursePage: React.FC = () => {
                     </a>
                     
                     <a
-                      href="#appointment"
+                      href="/#appointment"
                       className="flex items-center justify-center space-x-2 border-2 border-primary-500 text-primary-500 px-6 py-3 rounded-lg font-medium hover:bg-primary-500 hover:text-white transition-all duration-300"
                     >
                       <Calendar className="h-4 w-4" />
@@ -343,4 +340,9 @@ const CoursePage: React.FC = () => {
             </div>
           </div>
         </motion.div>
+      </div>
+    </div>
+  );
+};
+
 export default CoursePage;
