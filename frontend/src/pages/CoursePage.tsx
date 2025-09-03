@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { BookOpen, Play, Lock, CheckCircle, ArrowLeft } from 'lucide-react';
+import { BookOpen, Play, Lock, CheckCircle, ArrowLeft, MapPin, Clock, Calendar } from 'lucide-react';
 
 const CoursePage: React.FC = () => {
   const { user, isSubscriptionActive } = useAuth();
@@ -197,6 +197,72 @@ const CoursePage: React.FC = () => {
           </motion.div>
         )}
 
+        {/* Local Classes Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="mb-12"
+        >
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div className="bg-gradient-to-r from-primary-500 to-purple-500 px-8 py-6 text-white">
+              <div className="flex items-center">
+                <MapPin className="h-6 w-6 mr-3" />
+                <div>
+                  <h3 className="text-2xl font-bold mb-2">Local Physical Classes</h3>
+                  <p className="text-primary-100">
+                    Join us in person at our beauty parlour for hands-on learning experience
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-8">
+              {/* Class Schedule */}
+              <div className="mb-8">
+                <div className="flex items-center mb-6">
+                  <Calendar className="h-5 w-5 text-primary-500 mr-2" />
+                  <h4 className="text-xl font-semibold text-gray-800">Class Schedule</h4>
+                </div>
+                
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="grid grid-cols-1 md:grid-cols-7 gap-4">
+                    {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map((day) => (
+                      <div key={day} className="text-center">
+                        <div className="bg-white rounded-lg p-4 shadow-sm border-2 border-primary-200">
+                          <div className="font-semibold text-gray-800 mb-2">{day}</div>
+                          <div className="flex items-center justify-center text-primary-600">
+                            <Clock className="h-4 w-4 mr-1" />
+                            <span className="text-sm font-medium">4:00 PM - 6:00 PM</span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    <div className="text-center">
+                      <div className="bg-gray-200 rounded-lg p-4 shadow-sm">
+                        <div className="font-semibold text-gray-500 mb-2">Sunday</div>
+                        <div className="text-gray-400 text-sm">Closed</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0">
+                        <svg className="h-5 w-5 text-blue-400 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <div className="ml-3">
+                        <p className="text-sm text-blue-700">
+                          <strong>Note:</strong> Physical classes are available for local students only. 
+                          Please contact us to confirm availability and book your slot.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
         {/* Active Subscription Info */}
         {hasActiveSubscription && user.subscription && (
           <motion.div
@@ -223,4 +289,58 @@ const CoursePage: React.FC = () => {
   );
 };
 
+              {/* Location Map */}
+              <div>
+                <div className="flex items-center mb-6">
+                  <MapPin className="h-5 w-5 text-primary-500 mr-2" />
+                  <h4 className="text-xl font-semibold text-gray-800">Our Location</h4>
+                </div>
+                
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="mb-4">
+                    <h5 className="font-semibold text-gray-800 mb-2">SPM Beauty Parlour</h5>
+                    <p className="text-gray-600 flex items-start">
+                      <MapPin className="h-4 w-4 text-primary-500 mr-2 mt-0.5 flex-shrink-0" />
+                      Ambiwala Gurudwara, Ring Road, Nehru Colony Rd, Dehradun, Uttarakhand 248001
+                    </p>
+                  </div>
+                  
+                  {/* Google Maps Embed */}
+                  <div className="rounded-lg overflow-hidden shadow-lg">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.175234567890!2d78.0421!3d30.3165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39092b6d0c5e5e5e%3A0x1234567890abcdef!2sAmbiwala%20Gurudwara%2C%20Ring%20Road%2C%20Nehru%20Colony%20Rd%2C%20Dehradun%2C%20Uttarakhand%20248001!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                      width="100%"
+                      height="300"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="SPM Beauty Parlour Location"
+                    ></iframe>
+                  </div>
+                  
+                  <div className="mt-4 flex flex-col sm:flex-row gap-4">
+                    <a
+                      href="https://maps.app.goo.gl/hzTQk5TB9UEYXgQR9"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center space-x-2 bg-gradient-to-r from-primary-500 to-purple-500 text-white px-6 py-3 rounded-lg font-medium hover:from-primary-600 hover:to-purple-600 transition-all duration-300"
+                    >
+                      <MapPin className="h-4 w-4" />
+                      <span>Open in Google Maps</span>
+                    </a>
+                    
+                    <a
+                      href="#appointment"
+                      className="flex items-center justify-center space-x-2 border-2 border-primary-500 text-primary-500 px-6 py-3 rounded-lg font-medium hover:bg-primary-500 hover:text-white transition-all duration-300"
+                    >
+                      <Calendar className="h-4 w-4" />
+                      <span>Book Physical Class</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
 export default CoursePage;
